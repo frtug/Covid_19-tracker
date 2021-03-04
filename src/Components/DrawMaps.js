@@ -4,11 +4,7 @@ import { scaleQuantile } from 'd3-scale';
 import ReactTooltip from 'react-tooltip';
 
 
-/**
-* Courtesy: https://rawgit.com/Anujarya300/bubble_maps/master/data/geography-data/india.topo.json
-* Looking topojson for other countries/world? 
-* Visit: https://github.com/markmarkoh/datamaps
-*/
+
 
 
 const INDIA_TOPO_JSON = require('./india.topo.json');
@@ -24,7 +20,7 @@ const COLOR_RANGE = [
  
 ];
 
-const DEFAULT_COLOR = '#EEE';
+const DEFAULT_COLOR = '#85b0d9';
 
 const getRandomInt = () => {
   return parseInt(Math.random() * 100);
@@ -90,9 +86,9 @@ const getHeatMapData = () => {
   ];
 };
 
-function App() {
+function App(props) {
   const [tooltipContent, setTooltipContent] = useState('');
-  const [data, setData] = useState(getHeatMapData());
+  const [data] = useState(getHeatMapData());
 
   
 
@@ -103,7 +99,7 @@ function App() {
   const onMouseEnter = (geo = { value: 'NA' }) => {
     return () => {
       setTooltipContent(`${geo.properties.name}`);
-      
+      props.getInfo(`${geo.id}`)
     };
   };
 

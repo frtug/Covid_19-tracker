@@ -215,9 +215,11 @@
         {
           "type": "Polygon",
           "id": "JK",
-          "properties": { "name": "Jammu & Kashmir" },
+          "properties": { "name": "Jammu & Kashmir & Ladakh" },
           "arcs": [[-135, -62, 135]]
         },
+        
+
         {
           "type": "Polygon",
           "id": "JH",

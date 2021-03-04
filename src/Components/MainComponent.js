@@ -17,8 +17,8 @@ class MainComponent extends Component {
           .then((data) =>{
             this.setState({ Statewise : data.statewise, GraphData : data.cases_time_series})
 
-            console.log(this.state.Statewise);
-            console.log(this.state.GraphData);
+         //  console.log(this.state.Statewise);
+            //console.log(this.state.GraphData);
 
           })
           fetch('https://api.covid19india.org/states_daily.json')
@@ -26,7 +26,7 @@ class MainComponent extends Component {
           .then((data) =>{
             this.setState({ DayRecord : data.states_daily.slice(data.states_daily.length -22, data.states_daily.length -1 ) })
 
-            console.log(this.state.DayRecord);
+           // console.log(this.state.DayRecord);
           })
 
           .catch(console.log());
@@ -49,7 +49,6 @@ class MainComponent extends Component {
                     <div className="data_class">
                         
                         <div className="card card-graph">
-                            I am Graph Lets all pray to make a earth a better place Lets all pray to make a earth a better place Lets all pray to make a earth a better place
                         </div>
                         <div className="card card-table">
                             <Table statewise = {this.state.Statewise}/>
@@ -62,7 +61,7 @@ class MainComponent extends Component {
                         <p>Hover over the state for more detail</p>
                     </div>
                     <div className="card card-map">
-                        <Map />
+                        <Map Data = {this.state.Statewise} />
                     </div>
                 </div>
 
